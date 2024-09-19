@@ -1,5 +1,7 @@
 # Sarafan project's Backend
-Test task: Grocery store project on Django(backend)
+
+### Description:
+A test task. The backend of the grocery store project.
 
 ### Start up project:
 
