@@ -1,11 +1,54 @@
-# Sarafan
-Test task: Grocery store project on Django
+# Sarafan project's Backend
+Test task: Grocery store project on Django(backend)
 
+### Start up project:
 
-### docs:
+-   Clone the repository and go to it on the command line:
+```bash
+git clone https://github.com/momtheprogram/api_rating_genres.git
+
+cd api_yamdb
+```
+-   Create and activate a virtual environment.
+
+-   Windows:
+```bash
+python -m venv venv
+
+. venv/Scripts/activate
+```
+
+Linux/macOS:
+```bash
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
+-   Install dependencies from a file requirements.txt:
+
+```bash
+python -m pip install --upgrade pip
+
+pip install -r requirements.txt
+```
+
+-   Perform migrations:
+
+```bash
+python manage.py migrate
+```
+
+-   Start project:
+
+```bash
+python manage.py runserver
+```
+
+### Documentation:
 http://127.0.0.1:8000/redoc/
 
 
-### adminka
+### Login to the admin panel
 log: 'admin'\
 pass: '654321'
