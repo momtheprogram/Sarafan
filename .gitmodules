@@ -1,0 +1,3 @@
+[submodule "grosery_store/test_task"]
+	path = grosery_store/test_task
+	url = https://github.com/momtheprogram/test_task.git
