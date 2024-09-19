@@ -14,7 +14,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-class Subcategory(models.Model):
+class SubCategory(models.Model):
     name = models.CharField(max_length=100)
     slug = models.Slugfield(unique=True)
     image = models.ImageField(upload_to='subcategories/')
