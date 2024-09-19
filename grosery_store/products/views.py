@@ -46,6 +46,7 @@ class CartViewSet(viewsets.ViewSet):
     def get_cart(self, request):
         cart, created = Cart.objects.get_or_create(user=request.user)
         serializer = CartSerializer(cart)
+
         return Response(serializer.data)
 
     def add_to_cart(self, request, pk=None):
@@ -55,6 +56,7 @@ class CartViewSet(viewsets.ViewSet):
         if not created:
             cart_item.quantity += 1
             cart_item.save()
+
         return Response(CartItemSerializer(cart_item).data)
 
     def update_cart_item(self, request, pk=None):
@@ -64,17 +66,20 @@ class CartViewSet(viewsets.ViewSet):
         if quantity is not None:
             cart_item.quantity = quantity
             cart_item.save()
+
         return Response(CartItemSerializer(cart_item).data)
 
     def delete_cart_item(self, request, pk=None):
         cart = get_object_or_404(Cart, user=request.user)
         cart_item = get_object_or_404(CartItem, cart=cart, pk=pk)
         cart_item.delete()
+
         return Response(status=204)
 
     def clear_cart(self, request):
         cart = get_object_or_404(Cart, user=request.user)
         cart.items.all().delete()
+
         return Response(status=204)
 
 
@@ -84,11 +89,6 @@ class CustomAuthToken(ObtainAuthToken):
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
+
         return Response({'token': token.key})
 
-class ProtectedView(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-
-    def get(self, request):
-        content = {'message': 'This is a protected view!'}
-        return Response(content)

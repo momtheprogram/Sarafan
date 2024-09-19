@@ -36,7 +36,7 @@ class SubCategory(models.Model):
         verbose_name_plural = 'Подкатегории'
 
     def __str__(self):
-        return self.nsme
+        return self.name
 
 class Product(models.Model):
     name = models.CharField(max_length=100, verbose_name='продукт')
@@ -67,5 +67,7 @@ class CartItem(models.Model):
     quantity = models.PositiveIntegerField(default=1, verbose_name='количество позиций в корзине')
 
     class Meta:
-        unique_together = ('cart', 'product')
+        constraints = (
+            models.UniqueConstraint(fields=['cart', 'product'], name='unique_product_in_the_cart'),
+        )
         verbose_name = 'Количество позиций в корзине'
