@@ -1,4 +1,4 @@
-# Sarafan
+### Sarafan
 Test task: Grocery store project on Django
 
 
@@ -6,6 +6,6 @@ Test task: Grocery store project on Django
 http://127.0.0.1:8000/redoc/
 
 
-### adminka \
+# adminka \
 log: 'admin'
 pass: '654321'
