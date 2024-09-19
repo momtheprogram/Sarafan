@@ -2,10 +2,10 @@
 Test task: Grocery store project on Django
 
 
-### docs: \
+### docs:
 http://127.0.0.1:8000/redoc/
 
 
-### adminka \
+### adminka
 log: 'admin'\
 pass: '654321'
